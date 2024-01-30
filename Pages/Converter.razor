@@ -1,0 +1,49 @@
+@page "/converter"
+
+<PageTitle>Konverterare</PageTitle>
+
+<h1>Konverterare</h1>
+<section>
+    <h2>Meter till feet</h2>
+    <div class="form">
+        <label for="meter">Meter</label>
+        <input type="number" min="1" @bind="meter" />
+
+        <button @onclick="ConvertToFeet">Konvertera</button>
+    </div>
+
+    <p>Svar: @feet feet</p>
+</section>
+
+<section>
+    <h2>Km/h till miles/hour</h2>
+    <div class="form">
+        <label for="kilometer">Kilometer per timme</label>
+    <input type="number" min="1" @bind="kilometer">
+    <button @onclick="ConvertToMiles">Konvertera</button>
+    </div>
+
+    <p>Svar: @miles miles/hour</p>
+</section>
+
+@code {
+    private decimal feet;
+
+    private double meter = 1;
+
+    private double miles;
+
+    private double kilometer = 1;
+
+    private void ConvertToFeet()
+    {
+        feet = (decimal)(meter * 3.28084);
+        feet = Math.Round(feet, 1);
+    }
+
+    private void ConvertToMiles()
+    {
+        miles = (double)(kilometer * 0.621371192);
+        miles = Math.Round(miles);
+    }
+}

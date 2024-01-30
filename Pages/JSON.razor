@@ -1,0 +1,40 @@
+@page "/json"
+@inject HttpClient Http
+
+<PageTitle>JSON</PageTitle>
+
+<h1>JSON</h1>
+<section>
+    <h2>Slumpad fakta om katter</h2>
+
+    @if (randomfact == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <p>@randomfact.Fact</p>
+    }
+</section>
+
+<section>
+    <h2>API</h2>
+    <p>Källa: <a href="https://catfact.ninja/fact" target="_blank">https://catfact.ninja/fact</a></p>
+</section>
+
+<InfoBox Title="Det här är en annan komponent" />
+
+@code {
+    private CatFact? randomfact;
+
+    protected override async Task OnInitializedAsync()
+    {
+        randomfact = await Http.GetFromJsonAsync<CatFact>("https://catfact.ninja/fact");
+    }
+
+    public class CatFact
+    {
+        public string? Fact { set; get; }
+        public int? Length { set; get; }
+    }
+}

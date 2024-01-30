@@ -1,0 +1,25 @@
+/* /Layout/MainLayout.razor.rz.scp.css */
+.content-wrapper[b-hz9r9hur55] {
+    margin: auto;
+    padding: 30px;
+    max-width: 700px;
+    background-color: rgb(183, 237, 255);
+}
+/* /Layout/NavMenu.razor.rz.scp.css */
+nav[b-bg4ql806vx] {
+    margin: 50px auto 0px auto;
+    padding: 20px;
+    background-color: rgb(101, 216, 255);
+    max-width: 700px;
+}
+
+#ul-menu[b-bg4ql806vx] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+nav ul li[b-bg4ql806vx] {
+    list-style-type: none;
+    text-transform: uppercase;
+}
